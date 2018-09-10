@@ -1,0 +1,6 @@
+bordeee:una mierda:2018-09-10:3:4
+sigue:sigue mamonnn:2018-09-10:4:3
+r:t:2018-09-10:4:4
+r:f:2018-09-10:3:4
+f:g:2018-09-10:4:3
+Ultimo:Soy el tardio:2018-09-10:3:4
