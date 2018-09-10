@@ -1,4 +1,7 @@
-from modtwitter import *
+from twitter.tweets.listar import flistatweets
+from twitter.tweets.pedir import pedirtweet
+
+
 
 creditos = ("Miguel Angel","sutia",2018)
 infotweet={}
