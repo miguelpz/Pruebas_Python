@@ -12,6 +12,9 @@ listatweet=[]
 def mostrarTimeline (login,usuarios):
  
     seguir ={}
+    
+    
+
             
     if os.path.exists(SEGUIDORES):
         seguir = {}
@@ -28,10 +31,52 @@ def mostrarTimeline (login,usuarios):
             if os.path.exists(TWEETS):
                 tweets = cargarFichero(TWEETS)
             
+                opcion="n"
                 
+                
+            
+            otro="s"
+            while otro =="s":
+                indice = 0
                 for tweet in tweets:
                     if tweet["Autor"] in lseguidos:
-                        print ("Autor: {} Texto: {}".format(tweet["Autor"], tweet["Mensaje"]))
+                        
+                        indice +=1
+                        tweet["id"] = str(indice)
+                        print ("{}     Autor: {} Texto: {} Likes: {} Retweets: {}".format(tweet["id"], tweet["Autor"], tweet["Mensaje"], tweet["Likes"], tweet["Retweets"]))
+                    else:
+                        
+                        tweet["id"]="NoSeguido"
+                                                    
+                
+
+                opcion = input ("Indique numero para modificar likes/retweets [s] para salir: ")
+
+                
+                    
+                if opcion!="s":
+                
+                    likes = input ("Likes? ")
+                    retwets = input ("Retweets? ")
+
+                    for tweet in tweets:
+                        if tweet["id"] in opcion:
+                            tweet["Likes"]=str(likes)
+                            tweet["Retweets"]= str(retwets)
+                    
+                    for tweet in tweets:
+                        tweet.pop("id")
+                    
+                otro= input ("Modificar otro tweet[s/n]? ")
+
+            escribirFichero(TWEETS,tweets)                          
+                
+            
+
+
+
+                            
+
                 
         else:
             print ("No sigues a nadie! Empieza ya mismo a seguir a alguien")    
